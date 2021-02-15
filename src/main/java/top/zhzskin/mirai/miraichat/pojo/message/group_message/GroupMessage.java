@@ -17,4 +17,95 @@ public class GroupMessage {
     String raw_message; //	string	-	原始消息内容
     int font; //	number (int32)	-	字体
     Sender sender; //	object	-	发送人信息
+
+    public long getTime() {
+        return time;
+    }
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public long getSelf_id() {
+        return self_id;
+    }
+    public void setSelf_id(long self_id) {
+        this.self_id = self_id;
+    }
+
+    public String getPost_type() {
+        return post_type;
+    }
+    public void setPost_type(String post_type) {
+        this.post_type = post_type;
+    }
+
+    public String getMessage_type() {
+        return message_type;
+    }
+    public void setMessage_type(String message_type) {
+        this.message_type = message_type;
+    }
+
+    public String getSub_type() {
+        return sub_type;
+    }
+    public void setSub_type(String sub_type) {
+        this.sub_type = sub_type;
+    }
+
+    public long getMessage_id() {
+        return message_id;
+    }
+    public void setMessage_id(long message_id) {
+        this.message_id = message_id;
+    }
+
+    public long getGroup_id() {
+        return group_id;
+    }
+    public void setGroup_id(long group_id) {
+        this.group_id = group_id;
+    }
+
+    public long getUser_id() {
+        return user_id;
+    }
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
+
+    public Anonymous getAnonymous() {
+        return anonymous;
+    }
+    public void setAnonymous(Anonymous anonymous) {
+        this.anonymous = anonymous;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getRaw_message() {
+        return raw_message;
+    }
+    public void setRaw_message(String raw_message) {
+        this.raw_message = raw_message;
+    }
+
+    public int getFont() {
+        return font;
+    }
+    public void setFont(int font) {
+        this.font = font;
+    }
+
+    public Sender getSender() {
+        return sender;
+    }
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
 }

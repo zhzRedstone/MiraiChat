@@ -6,6 +6,31 @@ public class Sender {
     String sex;//	string	性别，male 或 female 或 unknown
     int age;//	number (int32)	年龄
 
-    //TODO sender get set
+    public long getUser_id() {
+        return user_id;
+    }
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
 
+    public String getNickname() {
+        return nickname;
+    }
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
