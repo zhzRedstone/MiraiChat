@@ -1,0 +1,11 @@
+WsUrl: "ws://101.200.194.251:6700"
+qq: 3173857429
+charset: "GBK"
+
+group: 1048307612
+Chat-enable-disable-Message: true
+Enable-Chat-Message: bukkit已开启
+Disable-Chat-Message: bukkit已关闭
+Debug-mode: true
+BroadcastGroupMessage: true
+EventChat: false
