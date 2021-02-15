@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import top.zhzskin.mirai.miraichat.pojo.WsMessage;
+import top.zhzskin.mirai.miraichat.pojo.message.Message;
+import top.zhzskin.mirai.miraichat.pojo.message.group_message.GroupMessage;
+import top.zhzskin.mirai.miraichat.pojo.message.private_message.PrivateMessage;
 import top.zhzskin.mirai.miraichat.pojo.meta.Meta;
 import top.zhzskin.mirai.miraichat.pojo.meta.heartbeat.HeartBeat;
 import top.zhzskin.mirai.miraichat.pojo.meta.lifecycle.LifeCycle;
@@ -33,7 +36,13 @@ public class WsClient extends WebSocketClient {
                 HeartBeat heartBeat = gson.fromJson(message,HeartBeat.class);
             }
         } else if (wsMessage.getPost_type().equals("message")){
-         //todo 消息和事件处理分流和反序列化
+            Message msg = gson.fromJson(message,Message.class);
+            if (msg.getMessage_type().equals("private")){
+                PrivateMessage privateMessage = gson.fromJson(message,PrivateMessage.class);
+            } else if (msg.getMessage_type().equals("group")){
+                GroupMessage groupMessage = gson.fromJson(message,GroupMessage.class);
+            }
+            //todo 通知，请求处理
         }
     }
 
