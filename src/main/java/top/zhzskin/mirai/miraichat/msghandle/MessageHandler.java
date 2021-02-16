@@ -1,5 +1,6 @@
 package top.zhzskin.mirai.miraichat.msghandle;
 
+import org.bukkit.Bukkit;
 import top.zhzskin.mirai.miraichat.pojo.message.group_message.GroupMessage;
 import top.zhzskin.mirai.miraichat.pojo.message.private_message.PrivateMessage;
 import top.zhzskin.mirai.miraichat.pojo.meta.heartbeat.HeartBeat;
@@ -12,6 +13,9 @@ public class MessageHandler {
     }
     /*收到群消息*/
     public void receiveGroupMessage(GroupMessage message){
+        if (message.getGroup_id()==330986863){
+            Bukkit.getServer().broadcastMessage(message.getSender().getNickname()+":"+message.getMessage());
+        }
 
     }
     /*生命周期*/
