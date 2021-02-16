@@ -33,7 +33,7 @@ public class MiraiChat extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
-        // todo wsClient.send("json");
+        // todo wsClient.send("json"); 需实现API
     }
 
     @Override

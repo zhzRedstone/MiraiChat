@@ -53,7 +53,8 @@ public class WsClient extends WebSocketClient {
                 MessageHandler messageHandler = new MessageHandler();
                 messageHandler.receiveGroupMessage(groupMessage);
             }
-            //todo 通知，请求处理
+
+            //todo 通知，请求处理 要将事件实现
         }
     }
 
