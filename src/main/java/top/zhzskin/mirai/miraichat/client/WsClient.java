@@ -3,6 +3,7 @@ package top.zhzskin.mirai.miraichat.client;
 import com.google.gson.Gson;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
+import top.zhzskin.mirai.miraichat.msghandle.MessageHandler;
 import top.zhzskin.mirai.miraichat.pojo.WsMessage;
 import top.zhzskin.mirai.miraichat.pojo.message.Message;
 import top.zhzskin.mirai.miraichat.pojo.message.group_message.GroupMessage;
@@ -32,15 +33,25 @@ public class WsClient extends WebSocketClient {
             Meta metaEvent = gson.fromJson(message, Meta.class);
             if (metaEvent.getMeta_event_type().equals("lifecycle")){
                 LifeCycle lifeCycle = gson.fromJson(message,LifeCycle.class);
+                MessageHandler messageHandler = new MessageHandler();
+                messageHandler.onLifeCycle(lifeCycle);
             } else if (metaEvent.getMeta_event_type().equals("heartbeat")){
                 HeartBeat heartBeat = gson.fromJson(message,HeartBeat.class);
+                MessageHandler messageHandler = new MessageHandler();
+                messageHandler.onHeartBeat(heartBeat);
             }
         } else if (wsMessage.getPost_type().equals("message")){
             Message msg = gson.fromJson(message,Message.class);
             if (msg.getMessage_type().equals("private")){
                 PrivateMessage privateMessage = gson.fromJson(message,PrivateMessage.class);
+                //交给MessageHandler
+                MessageHandler messageHandler = new MessageHandler();
+                messageHandler.receivePrivateMessage(privateMessage);
             } else if (msg.getMessage_type().equals("group")){
                 GroupMessage groupMessage = gson.fromJson(message,GroupMessage.class);
+                //交给MessageHandler
+                MessageHandler messageHandler = new MessageHandler();
+                messageHandler.receiveGroupMessage(groupMessage);
             }
             //todo 通知，请求处理
         }
