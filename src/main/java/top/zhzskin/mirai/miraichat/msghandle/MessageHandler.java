@@ -14,7 +14,6 @@ public class MessageHandler {
     /*收到群消息*/
     public void receiveGroupMessage(GroupMessage message){
         if (message.getGroup_id()==330986863L){
-            Bukkit.getServer().getLogger().info(message.getSender().getNickname()+":"+message.getMessage());
             Bukkit.getServer().broadcastMessage(message.getSender().getNickname()+":"+message.getMessage());
         }
 
