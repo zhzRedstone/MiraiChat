@@ -28,7 +28,6 @@ public class MiraiChat extends JavaPlugin implements Listener {
     public void onEnable() {
         if (this.wsClient.isOpen()){
             getLogger().info("WebSocket已连接");
-
         }
     }
 

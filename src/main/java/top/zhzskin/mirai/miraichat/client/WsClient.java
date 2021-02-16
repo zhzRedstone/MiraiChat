@@ -32,24 +32,24 @@ public class WsClient extends WebSocketClient {
         if(wsMessage.getPost_type().equals("meta_event")){
             Meta metaEvent = gson.fromJson(message, Meta.class);
             if (metaEvent.getMeta_event_type().equals("lifecycle")){
-                LifeCycle lifeCycle = gson.fromJson(message,LifeCycle.class);
+                LifeCycle lifeCycle = gson.fromJson(message,LifeCycle.class);//构造对象：生命周期
                 MessageHandler messageHandler = new MessageHandler();
                 messageHandler.onLifeCycle(lifeCycle);
             } else if (metaEvent.getMeta_event_type().equals("heartbeat")){
-                HeartBeat heartBeat = gson.fromJson(message,HeartBeat.class);
+                HeartBeat heartBeat = gson.fromJson(message,HeartBeat.class);//构造对象：心跳
                 MessageHandler messageHandler = new MessageHandler();
                 messageHandler.onHeartBeat(heartBeat);
             }
         } else if (wsMessage.getPost_type().equals("message")){
             Message msg = gson.fromJson(message,Message.class);
             if (msg.getMessage_type().equals("private")){
-                PrivateMessage privateMessage = gson.fromJson(message,PrivateMessage.class);
-                //交给MessageHandler
+                PrivateMessage privateMessage = gson.fromJson(message,PrivateMessage.class);//构造对象：私聊消息
+                //交给MessageHandler处理
                 MessageHandler messageHandler = new MessageHandler();
                 messageHandler.receivePrivateMessage(privateMessage);
             } else if (msg.getMessage_type().equals("group")){
-                GroupMessage groupMessage = gson.fromJson(message,GroupMessage.class);
-                //交给MessageHandler
+                GroupMessage groupMessage = gson.fromJson(message,GroupMessage.class);//构造对象：群消息
+                //交给MessageHandler处理
                 MessageHandler messageHandler = new MessageHandler();
                 messageHandler.receiveGroupMessage(groupMessage);
             }
