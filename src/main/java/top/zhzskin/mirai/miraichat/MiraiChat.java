@@ -19,7 +19,7 @@ public class MiraiChat extends JavaPlugin implements Listener {
     @Override
     public void onLoad() {
         try {
-            this.wsClient = new WsClient(getConfig().getString("WsUrl"));
+            this.wsClient = new WsClient("ws://101.200.194.251:6700");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
