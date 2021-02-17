@@ -9,25 +9,27 @@ public class ApiBuilder {
     public String sendPrivateMsg(long user_id,String message,boolean auto_escape){
         Api api = new Api();
         api.setAction("send_private_msg");
-        Param param = new Param();
+        Param params = new Param();
         SendPrivateMessage sendPrivateMessage = new SendPrivateMessage();
         sendPrivateMessage.setUser_id(user_id);
         sendPrivateMessage.setMessage(message);
         sendPrivateMessage.setAuto_escape(auto_escape);
-        param.setSendPrivateMessage(sendPrivateMessage);
-        api.setParam(param);
+        params.setSendPrivateMessage(sendPrivateMessage);
+        api.setParam(params.getSendPrivateMessage());
+        System.out.println(gson.toJson(api));
         return gson.toJson(api);
     }
     public String sendGroupMessage(long group_id,String message,boolean auto_escape){
         Api api = new Api();
         api.setAction("send_group_msg");
-        Param param = new Param();
+        Param params = new Param();
         SendGroupMessage sendGroupMessage = new SendGroupMessage();
         sendGroupMessage.setGroup_id(group_id);
         sendGroupMessage.setMessage(message);
         sendGroupMessage.setAuto_escape(auto_escape);
-        param.setSendGroupMessage(sendGroupMessage);
-        api.setParam(param);
+        params.setSendGroupMessage(sendGroupMessage);
+        api.setParam(params.getSendGroupMessage());
+        System.out.println(gson.toJson(api));
         return gson.toJson(api);
     }
 }

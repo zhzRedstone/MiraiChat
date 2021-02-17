@@ -8,6 +8,7 @@ import top.zhzskin.mirai.miraichat.pojo.meta.lifecycle.LifeCycle;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class MessageHandler {
     public static long group;
@@ -24,7 +25,7 @@ public class MessageHandler {
     public void receiveGroupMessage(GroupMessage message){
 
         if (message.getGroup_id()==group){
-            if (message.getSender().getCard()!=null){
+            if (!Objects.equals(message.getSender().getCard(), "")){
                 Bukkit.getServer().broadcastMessage(message.getSender().getCard()+":"+message.getMessage());
             } else {
                 Bukkit.getServer().broadcastMessage(message.getSender().getNickname()+":"+message.getMessage());

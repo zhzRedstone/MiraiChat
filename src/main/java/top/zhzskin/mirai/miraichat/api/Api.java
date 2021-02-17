@@ -4,7 +4,7 @@ package top.zhzskin.mirai.miraichat.api;
 
 public class Api {
     String action;
-    Param param;
+    Param params;
     public String getAction() {
         return action;
     }
@@ -13,10 +13,10 @@ public class Api {
     }
 
     public Param getParam() {
-        return param;
+        return params;
     }
-    public void setParam(Param param) {
-        this.param = param;
+    public void setParam(Param params) {
+        this.params = params;
     }
 
 }

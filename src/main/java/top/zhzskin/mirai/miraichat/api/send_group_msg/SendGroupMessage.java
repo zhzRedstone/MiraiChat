@@ -1,6 +1,8 @@
 package top.zhzskin.mirai.miraichat.api.send_group_msg;
 
-public class SendGroupMessage {
+import top.zhzskin.mirai.miraichat.api.Param;
+
+public class SendGroupMessage extends Param {
     long group_id;//	int64	-	群号
     String message;//	message	-	要发送的内容
     boolean auto_escape;//	boolean	false	消息内容是否作为纯文本发送 ( 即不解析 CQ 码) , 只在 message 字段是字符串时有效
