@@ -4,12 +4,7 @@ public class WsMessage {
     long time; //    事件发生的时间戳
     long self_id; // 收到事件的机器人 QQ 号
     String post_type; //事件类型:
-    //                     message：消息事件
-    //                     notice：todo 通知事件
     //                     request：todo 请求事件
-    //                     meta_event：元事件
-
-
     public void setTime(long time) {
         this.time = time;
     }

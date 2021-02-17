@@ -12,10 +12,18 @@ import top.zhzskin.mirai.miraichat.pojo.meta.Meta;
 import top.zhzskin.mirai.miraichat.pojo.meta.heartbeat.HeartBeat;
 import top.zhzskin.mirai.miraichat.pojo.meta.lifecycle.LifeCycle;
 import top.zhzskin.mirai.miraichat.pojo.notice.Notice;
+import top.zhzskin.mirai.miraichat.pojo.notice.friend_add.Friend_add;
+import top.zhzskin.mirai.miraichat.pojo.notice.friend_recall.Friend_recall;
 import top.zhzskin.mirai.miraichat.pojo.notice.group_admin.Group_admin;
+import top.zhzskin.mirai.miraichat.pojo.notice.group_ban.Group_ban;
 import top.zhzskin.mirai.miraichat.pojo.notice.group_decrease.Group_decrease;
 import top.zhzskin.mirai.miraichat.pojo.notice.group_increase.Group_increase;
+import top.zhzskin.mirai.miraichat.pojo.notice.group_recall.Group_recall;
 import top.zhzskin.mirai.miraichat.pojo.notice.group_upload.Group_upload;
+import top.zhzskin.mirai.miraichat.pojo.notice.notify.Notify;
+import top.zhzskin.mirai.miraichat.pojo.notice.notify.honor.Honor;
+import top.zhzskin.mirai.miraichat.pojo.notice.notify.lucky_king.Lucky_king;
+import top.zhzskin.mirai.miraichat.pojo.notice.notify.poke.Poke;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -76,10 +84,35 @@ public class WsClient extends WebSocketClient {
                     case "group_increase":
                         Group_increase groupIncrease = gson.fromJson(message, Group_increase.class);
                         break;
+                    case "group_ban":
+                        Group_ban groupBan = gson.fromJson(message,Group_ban.class);
+                        break;
+                    case "friend_add":
+                        Friend_add friendAdd = gson.fromJson(message,Friend_add.class);
+                        break;
+                    case "group_recall":
+                        Group_recall groupRecall = gson.fromJson(message,Group_recall.class);
+                        break;
+                    case "friend_recall":
+                        Friend_recall friendRecall = gson.fromJson(message,Friend_recall.class);
+                        break;
+                    case "notify":
+                        Notify notify = gson.fromJson(message,Notify.class);
+                        switch (notify.getSub_type()){
+                            case "lucky_king":
+                                Lucky_king luckyKing =gson.fromJson(message,Lucky_king.class);
+                                break;
+                            case "poke":
+                                Poke poke = gson.fromJson(message,Poke.class);
+                                break;
+                            case "honor":
+                                Honor honor = gson.fromJson(message,Honor.class);
+                                break;
+                        }
                 }
                 break;
         }
-        //todo 通知，请求处理 要将事件实现
+        //todo 请求处理 要将事件实现
     }
 
     @Override
