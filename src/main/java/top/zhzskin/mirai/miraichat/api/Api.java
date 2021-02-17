@@ -11,4 +11,12 @@ public class Api {
     public void setAction(String action) {
         this.action = action;
     }
+
+    public Param getParam() {
+        return param;
+    }
+    public void setParam(Param param) {
+        this.param = param;
+    }
+
 }

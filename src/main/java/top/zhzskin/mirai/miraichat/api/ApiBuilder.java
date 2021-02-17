@@ -15,6 +15,7 @@ public class ApiBuilder {
         sendPrivateMessage.setMessage(message);
         sendPrivateMessage.setAuto_escape(auto_escape);
         param.setSendPrivateMessage(sendPrivateMessage);
+        api.setParam(param);
         return gson.toJson(api);
     }
     public String sendGroupMessage(long group_id,String message,boolean auto_escape){
@@ -26,6 +27,7 @@ public class ApiBuilder {
         sendGroupMessage.setMessage(message);
         sendGroupMessage.setAuto_escape(auto_escape);
         param.setSendGroupMessage(sendGroupMessage);
+        api.setParam(param);
         return gson.toJson(api);
     }
 }
